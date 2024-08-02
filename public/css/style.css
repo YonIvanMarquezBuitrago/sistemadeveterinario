@@ -1,0 +1,41 @@
+.info {
+    background-image: url("https://img.freepik.com/vector-gratis/fondo-abstracto-curva-azul_53876-99570.jpg?t=st=1722193617~exp=1722197217~hmac=319be291b04f03826ba994bf1bf4da7a56e6aa1e4dd2fdb1c8afb73149018eb4&w=740");
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+}
+/*Cambios según tamaño de pantalla*/
+@media (max-width: 768px){
+    .info{
+        background-image: url("https://img.freepik.com/vector-gratis/tema-fondo-abstracto-blanco_23-2148830884.jpg?t=st=1722192099~exp=1722195699~hmac=8baaa11e7ad2a33d76eb45ddbfcd7ec6920ff5735a9facff6e7c94b73447a5b7&w=1380");
+    }
+}
+.gallery{
+background-color: #00d9ff;
+}
+zoomP{
+    /* Aumentamos la anchura y altura durante 2 segundos * */
+    transition:width 1.1s,height 1.1s,transform 1.1s;
+    -moz-transition:width 1.1s,height 1.1s,-moz-transform 1.1s;
+    -webkit-transition:width 1.1s,height 1.1s,-webkit-transform 1.1s;
+    -o-transition:width 1.1s,height 1.1s,-o-transform 1.1s;
+    /*border: 1px solid   #c0c0c0;
+    box-shadow: #c0c0c0 0px 5px 5px 0px;*/
+}
+.zoomP:hover{
+    /* /tranformamos el elemento al pasar el mouse por encima al doble de */
+    /* su tamano con scale(2).* */
+    transform:scale(1.05); /*(150%zoom Note:if the zoom is too large,it will go outside of the viewport)*/
+    -webkit-transform:scale(1.05);transform:scale(1.05)
+}
+.map{
+    background-color: #00d9ff;
+}
+.contactos{
+    background-image: url("https://img.freepik.com/foto-gratis/lindo-mascota-collage-aislado_23-2150007429.jpg?t=st=1722272748~exp=1722276348~hmac=0bc804c7f712cf75862cedc17e1113999421250f960404fc4a5d882113dd522b&w=1380");
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+}
+.footer{
+    background-color: #ffffff;
+    color: black;
+}
