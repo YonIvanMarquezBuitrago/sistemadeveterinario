@@ -25,7 +25,7 @@ try {
 }
 
 //Definición de Variables Globales
-define('APP_NAME', 'SistVet');
+define('APP_NAME', 'Sistema de Veterinario');
 define('APP_URL', 'http://localhost/sistemadeveterinario');
 /*$URL='http://localhost/sistemadeveterinario';*/
 define('NOMB_EMPRESA', 'Ingeniería en Línea Colombia');

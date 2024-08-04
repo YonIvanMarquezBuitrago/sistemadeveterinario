@@ -69,6 +69,7 @@ include('../../app/controllers/usuarios/datos_usuario.php');
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <form action="<?= APP_URL; ?>/app/controllers/usuarios/delete.php" method="post">
+                                        <!--Se llama el id_usuario a eliminar-->
                                         <input type="text" value="<?=$id_usuario;?>" name="id_usuario" hidden="hidden">
                                         <a href="<?= APP_URL; ?>/admin/usuarios" class="btn btn-secondary">Cancelar</a>
                                         <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar Usuario</button>

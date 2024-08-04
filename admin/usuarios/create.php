@@ -25,13 +25,13 @@ include('../../admin/layout/parte1.php');
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form group">
-                                        <label for="">Nombre Completo</label><b>*</b>
+                                        <label for="">Nombre Completo</label><b style="color: red"> *</b>
                                         <input type="text" name="nombre_completo" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form group">
-                                        <label for="">Correo Electrónico</label><b>*</b>
+                                        <label for="">Correo Electrónico</label><b style="color: red"> *</b>
                                         <input type="email" name="email" class="form-control" required>
                                     </div>
                                 </div>
@@ -39,13 +39,13 @@ include('../../admin/layout/parte1.php');
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form group">
-                                        <label for="">Contraseña</label><b>*</b>
+                                        <label for="">Contraseña</label><b style="color: red"> *</b>
                                         <input type="password" name="password" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form group">
-                                        <label for="">Repetir Contraseña</label><b>*</b>
+                                        <label for="">Repetir Contraseña</label><b style="color: red"> *</b>
                                         <input type="password" name="password_verify" class="form-control" required>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@ include('../../admin/layout/parte1.php');
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form group">
-                                        <label for="">Cargo</label><b>*</b>
+                                        <label for="">Cargo</label><b style="color: red"> *</b>
                                         <select name="cargo" id="" class="form-control">
                                             <option value="ADMINISTRADOR">ADMINISTRADOR</option>
                                             <option value="USUARIO">USUARIO</option>

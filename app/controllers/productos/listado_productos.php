@@ -1,17 +1,17 @@
 <?php
 /**
  * Created by PhpStorm.
- * Filename: listado_usuarios.php
+ * Filename: listado_productos.php
  * Descr: Archivo PHP del Proyecto sistemadeveterinario Producto PhpStorm
  * User: IngEnLinea https://ingenlinea.com/ INGENLINEAPC
- * Date: 30/07/2024
- * Time: 7:34 p. m.
+ * Date: 2/08/2024
+ * Time: 2:49 p. m.
  */
+
 /*Consulta de búsqueda*/
-$sql="SELECT * FROM tb_usuarios ORDER BY id_usuario DESC ";
+$sql = "SELECT * FROM tb_productos ORDER BY id_producto DESC ";
 /*Ejecución de la consulta*/
-$query=$pdo->prepare($sql);
+$query = $pdo->prepare($sql);
 $query->execute();
 /*Pasar la consulta en un array*/
-$usuarios=$query->fetchAll(PDO::FETCH_ASSOC);
-
+$productos = $query->fetchAll(PDO::FETCH_ASSOC);

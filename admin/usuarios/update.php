@@ -27,14 +27,14 @@ include('../../app/controllers/usuarios/datos_usuario.php');
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form group">
-                                        <label for="">Nombre Completo</label><b>*</b>
+                                        <label for="">Nombre Completo</label><b style="color: red"> *</b>
                                         <input type="text" name="id_usuario" value="<?= $id_usuario;?>" hidden>
                                         <input type="text" name="nombre_completo" value="<?=$nombre_completo;?>" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form group">
-                                        <label for="">Correo Electrónico</label><b>*</b>
+                                        <label for="">Correo Electrónico</label><b style="color: red"> *</b>
                                         <input type="email" name="email" value="<?=$email;?>" class="form-control" required>
                                     </div>
                                 </div>
@@ -44,13 +44,13 @@ include('../../app/controllers/usuarios/datos_usuario.php');
                                 <p>Deje los espacios en blanco si no desea cambiar la contraseña</p>
                                 <div class="col-md-6">
                                     <div class="form group">
-                                        <label for="">Contraseña</label><b>*</b>
+                                        <label for="">Contraseña</label>
                                         <input type="password" name="password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form group">
-                                        <label for="">Repetir Contraseña</label><b>*</b>
+                                        <label for="">Repetir Contraseña</label>
                                         <input type="password" name="password_verify" class="form-control">
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@ include('../../app/controllers/usuarios/datos_usuario.php');
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form group">
-                                        <label for="">Cargo</label><b>*</b>
+                                        <label for="">Cargo</label><b style="color: red"> *</b>
                                         <select name="cargo" class="form-control">
                                             <!-- <option value="">Seleccione...</option> -->
                                             <option value="ADMINISTRADOR" <?php if ($cargo == 'ADMINISTRADOR')

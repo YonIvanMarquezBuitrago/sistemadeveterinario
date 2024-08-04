@@ -10,12 +10,24 @@
 
 /*Validar que se ha iniciado Sesión*/
 session_start();
-if (isset($_SESSION['sesion_email'])){
+if (isset($_SESSION['sesion_email'])) {
     //echo "Ha pasado por el login";
-}else{
+    /*Traer el id_usuario*/
+    $email_sesion = $_SESSION['sesion_email'];
+    /*Consulta de búsqueda*/
+    $sql = "SELECT * FROM tb_usuarios WHERE email ='$email_sesion'";
+    /*Ejecución de la consulta*/
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    /*Pasar la consulta en un array*/
+    $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($usuarios as $usuario) {
+        $id_usuario_sesion = $usuario['id_usuario'];
+    }
+} else {
     //echo "NO ha pasado por el login";
     /*Redireccionamiento hacia el login*/
-    header('Location: '.APP_URL.'/login');
+    header('Location: ' . APP_URL . '/login');
 }
 ?>
 <!DOCTYPE html>
