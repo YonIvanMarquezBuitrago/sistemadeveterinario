@@ -59,7 +59,7 @@ include('../app/config.php');
                 <hr>
                 <button type="submit" class="btn btn-primary" style="width: 100%">Ingresar</button>
                 <br><br>
-                <a href="" class="btn btn-secondary" style="width: 100%">Cancelar</a>
+                <a href="<?= APP_URL; ?>" class="btn btn-secondary" style="width: 100%">Cancelar</a>
             </form>
         </div>        <!-- /.login-card-body -->
     </div>

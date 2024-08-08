@@ -1,81 +1,8 @@
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SistVete</title>
-    <!--Bootstrap 5.3 desde Internet-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-          crossorigin="anonymous">
-    <!--Bootstrap 5.3 desde el proyecto-->
-    <link href="public/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!--Iconos de Bootstrap-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- jQuery desde Internet--->
-    <!--<script src="{{url('plugins/jquery/jquery.min.js')}}"></script>-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- jQuery desde el proyecto--->
-    <script src="public/js/jquery-3.7.1.min.js"></script>
-    <!-- Stilos CSS desde el proyecto--->
-    <link rel="stylesheet" href="public/css/style.css">
-
-    <title>Document</title>
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <!--    <div class="container-fluid">-->
-    <div class="container">
-        <a class="navbar-brand" href="#"><img src="public/images/logo.png" width="50" height="50" alt="Logo">SisVete</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-fill"></i> Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
-            <div class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Ingresar
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="login">Iniciar Sesión</a></li>
-                            <li><a class="dropdown-item" href="login/registro.php">Registrarme</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-
+<?php
+include('app/config.php');
+include('layout/parte1.php');
+include('app/controllers/productos/listado_productos.php');
+?>
 <section> <!--Sección del Carrusel de Imágenes-->
     <!--Carousel-->
     <div id="carouselExampleCaptions" class="carousel slide">
@@ -89,7 +16,7 @@
             <div class="carousel-item active">
                 <img src="https://cdn.pixabay.com/photo/2020/03/31/16/18/cat-4988407_1280.jpg" height="800px" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <a href="" class="btn btn-outline-info btn-lg">Reservar Cita</a>
+                    <a href="<?=APP_URL;?>/reservar.php" class="btn btn-outline-info btn-lg">Reservar Cita</a>
                     <a href="" class="btn btn-info btn-lg">Ver Productos</a>
                     <h5>Resrva Cita</h5>
                     <p>Some representative placeholder content for the first slide.</p>
@@ -127,8 +54,6 @@
         </button>
     </div>
 </section><!--Fin Sección del Carrusel de Imágenes-->
-
-
 <section class="info"><!--Clase info para el estilo css-->
     <div class="container">
         <div class="row">
@@ -151,7 +76,38 @@
         </div>
     </div>
 </section>
-
+<section class="our-services" style="background-color: rgba(255,200,45,0.34)">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br><br>
+                <h1>Nuestros <span style="color: #0dcaf0"><b>Productos</b></span></h1>
+                <br><br>
+            </div>
+            <div class="row">
+                <?php
+                foreach ($productos as $producto) {
+                    ?>
+                    <div class="col-md-3 zoomP"><!--Cards-->
+                        <!--<div class="card" style="width: 18rem;">-->
+                        <div class="card">
+                            <img src="<?= APP_URL . "/public/images/productos/" . $producto['imagen']; ?>" class="card-img-top" height="220px" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $producto['nombre_producto']; ?></h5>
+                                <p class="card-text"><?= $producto['descripcion']; ?></p>
+                                <p style="text-align: right"><b>$<?= $producto['precio_venta']; ?></b></p>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
 <section class="our-services">
     <div class="container">
         <div class="row">
@@ -232,20 +188,20 @@
         <div class="row">
             <div class="col-md-4 zoomP">
                 <center><img
-                        src="https://img.freepik.com/foto-gratis/mujer-acariciando-su-gato-casa-cuarentena_23-2149374482.jpg?t=st=1722268383~exp=1722271983~hmac=3ff14f03880400f32335240a2b48ab578fc69f95276996bf7c6b9c1d8faec826&w=1380"
-                        width="100%" height="350px" alt=""></center>
+                            src="https://img.freepik.com/foto-gratis/mujer-acariciando-su-gato-casa-cuarentena_23-2149374482.jpg?t=st=1722268383~exp=1722271983~hmac=3ff14f03880400f32335240a2b48ab578fc69f95276996bf7c6b9c1d8faec826&w=1380"
+                            width="100%" height="350px" alt=""></center>
                 <br><br>
             </div>
             <div class="col-md-4 zoomP">
                 <center><img
-                        src="https://img.freepik.com/foto-gratis/cerca-veterinario-cuidando-mascota_23-2149143875.jpg?t=st=1722268716~exp=1722272316~hmac=6a4c96469903589433db7f9e2ffeb09fd205380dba644b4de464f48f810c9cb7&w=1380"
-                        width="100%" height="350px" alt=""></center>
+                            src="https://img.freepik.com/foto-gratis/cerca-veterinario-cuidando-mascota_23-2149143875.jpg?t=st=1722268716~exp=1722272316~hmac=6a4c96469903589433db7f9e2ffeb09fd205380dba644b4de464f48f810c9cb7&w=1380"
+                            width="100%" height="350px" alt=""></center>
                 <br><br>
             </div>
             <div class="col-md-4 zoomP">
                 <center><img
-                        src="https://img.freepik.com/foto-gratis/veterinario-profesional-comprobar-raza-perro-yorkshire-terrier-otoscopio-hospital-mascotas_496169-185.jpg?t=st=1722268739~exp=1722272339~hmac=720f77618e81a5573f786167571e136ecd4895a0889d01a9f01a2fd39a7b3ce7&w=1380"
-                        width="100%" height="350px" alt=""></center>
+                            src="https://img.freepik.com/foto-gratis/veterinario-profesional-comprobar-raza-perro-yorkshire-terrier-otoscopio-hospital-mascotas_496169-185.jpg?t=st=1722268739~exp=1722272339~hmac=720f77618e81a5573f786167571e136ecd4895a0889d01a9f01a2fd39a7b3ce7&w=1380"
+                            width="100%" height="350px" alt=""></center>
                 <br><br>
             </div>
         </div>
@@ -439,37 +395,6 @@
         <br>
     </div>
 </section>
-<footer class="container-fluid footer">
-    <div class="container">
-        <br><br>
-        <div class="row">
-            <div class="col-md-4">
-                <center><img src="public/images/logo.png" width="100%" alt="Logo"></center>
-            </div>
-            <div class="col-md-4">
-                <h3><b>Sistema de Veterinario</b></h3>
-                <br>
-                <p>
-                    <a href="" style="color: white"><u>Inicio</u></a><br>
-                    <a href="" style="color: white"><u>Sobre Nosotros</u></a><br>
-                    <a href="" style="color: white"><u>Galería</u></a><br>
-                    <a href="" style="color: white"><u>Testimonio</u></a><br>
-                    <a href="" style="color: white"><u>Tienda OnLine</u></a><br>
-                </p>
-            </div>
-            <div class="col-md-4">
-                <br><br>
-                <b><i class="bi bi-file-earmark-person"></i> Propietario: </b> Yon Ivan Marquez <br><br>
-                <b><i class="bi bi-whatsapp"></i> WhatsApp: </b> 3118795045 <br><br>
-                <b><i class="bi bi-envelope"></i> Email: </b> ingenlineaco@gmail.com
-            </div>
-        </div>
-    </div>
-</footer>
-<div class="container-fluid" style="background-color: black; color: white">
-    <p style="text-align: center">© Todos los Derechos Reservados - 2024 <a href="https://ingenlinea.com/">IngEnLinea Colombia</a></p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+<?php
+include('layout/parte2.php');
+include('admin/layout/mensajes.php');

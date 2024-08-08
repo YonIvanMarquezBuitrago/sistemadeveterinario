@@ -39,7 +39,7 @@ if ($contador>0 && (password_verify($password, $hash))){
     session_start();
     $_SESSION['sesion_email']=$email;
     /*Redireccionamiento hacia el admin*/
-    header('Location: '.APP_URL.'/admin');
+    header('Location: '.APP_URL.'/admin');//Revisar Direccionamiento
 }else{
     echo "Usuario Inexistente";
     /*Redireccionamiento hacia el login*/

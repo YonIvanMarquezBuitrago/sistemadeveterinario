@@ -23,6 +23,7 @@ if (isset($_SESSION['sesion_email'])) {
     $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
     foreach ($usuarios as $usuario) {
         $id_usuario_sesion = $usuario['id_usuario'];
+        $cargo_sesion = $usuario['cargo'];
     }
 } else {
     //echo "NO ha pasado por el login";
@@ -109,7 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="<?= APP_URL; ?>/public/templates/AdminLTE-3.2.0/index3.html" class="brand-link">
+        <a href="<?= APP_URL; ?>/admin/" class="brand-link">
             <img src="<?= APP_URL; ?>/public/images/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light"><?= APP_NAME; ?></span>
         </a>

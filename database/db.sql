@@ -32,7 +32,28 @@ CREATE TABLE `tb_productos`
     `stock_maximo`      INT(50) NOT NULL,
     `precio_compra`     INT(50) NOT NULL,
     `precio_venta`      INT(50) NOT NULL,
-    `fecha_ingreso`     DATE NOT NULL,
+    `fecha_ingreso`     DATE         NOT NULL,
+
+    `fyh_creacion`      DATETIME NULL,
+    `fyh_actualizacion` DATETIME NULL,
+    `estado`            VARCHAR(11)  NOT NULL,
+
+    FOREIGN KEY (id_usuario) REFERENCES tb_usuarios (id_usuario) ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- Creación de la Tabla Reservas
+CREATE TABLE `tb_reservas`
+(
+    `id_reserva`        INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `id_usuario`        INT(11) NOT NULL,
+    `nombre_mascota`    VARCHAR(255) NULL,
+    `tipo_servicio`     VARCHAR(255) NOT NULL,
+    `fecha_cita`        DATE         NOT NULL,
+    `hora_cita`         VARCHAR(100) NOT NULL,
+    `title`             VARCHAR(100) NOT NULL,
+    `start`             DATE         NOT NULL,
+    `end`               DATE         NOT NULL,
+    `color`             VARCHAR(50)  NOT NULL,
 
     `fyh_creacion`      DATETIME NULL,
     `fyh_actualizacion` DATETIME NULL,
